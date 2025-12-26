@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rick and Morty API</title>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music/Rick and Morty Theme Song [HD].mp3" type="audio/mpeg"> 
+</audio>
+
+<video class="background-video" autoplay muted loop playsinline>
+    <source src="photos/Rick and Morty Theme Song [HD] - Trim.mp4" type="video/mp4">
+</video>
+
+<nav class="navbar" id="catalogNavbar">
+    <button class="nav-home" onclick="goToHome()">Home</button>
+
+    <select id="statusFilter" class="nav-filter" onchange="applyFilters()">
+        <option value="">Status</option>
+        <option value="alive">Alive</option>
+        <option value="dead">Dead</option>
+        <option value="unknown">Unknown</option>
+    </select>
+</nav>
+
+<div class="card-overlay" id="cardOverlay"></div>
+
+<div class="container">
+
+
+    <div id="homepage" class="welcome-message fade show">
+        <h2>Welcome to Rick and Morty Explorer!</h2>
+        <p>Discover your favorite characters from the show!</p>
+        <button onclick="goToCatalog()">Let's Explore</button>
+    </div>
+
+    <div id="catalog" class="fade" style="display: none;">
+
+        <div class="logo-container">
+            <img src="photos/logornm.png" class="top-logo">
+        </div>
+
+        <header>
+            <p><b>Explore characters from the show!</b></p>
+        </header>
+
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search by character name...">
+            <button onclick="searchCharacters()">Search</button>
+            <button onclick="resetPage()">Reload</button>
+        </div>
+
+        <div id="loading" class="loader" style="display:none;"></div>
+        <div id="error" class="error" style="display:none;"></div>
+
+        <div id="welcomeMessage" class="welcome-message">
+            <h2>Welcome!</h2>
+            <p>Search for your favorite Rick and Morty characters</p>
+            <p>Use the search box above to get started</p>
+        </div>
+
+        <div id="charactersContainer" class="characters-grid"></div>
+        <div class="info-text" id="pageInfo"></div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>Source:
+        <a href="https://rickandmortyapi.com/" target="_blank">Rick and Morty API</a>
+    </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
